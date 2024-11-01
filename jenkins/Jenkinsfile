@@ -1,6 +1,11 @@
 pipeline {
     agent any
     stages {
+        stage('start') {
+            steps {
+                echo 'starting the process papo'
+            }
+        }
         stage('Build') {
             steps {
                 sh 'mvn -Denforcer.skip=true -B -DskipTests clean package'
@@ -24,7 +29,7 @@ pipeline {
 
         stage('Complete') {
             steps {
-                echo 'The has finish'
+                echo 'The process has finish'
             }
         }
         
